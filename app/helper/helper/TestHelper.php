@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper\Helper;
+namespace Giftlist\App\Helper\Helper;
 
 class TestHelper
 {

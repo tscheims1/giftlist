@@ -2,7 +2,7 @@
 
 namespace Giftlist\App\Model;
 
-class %%NAME%% extends \Giftlist\Core\Model\BaseModel
+class Frontend extends \Giftlist\Core\Model\BaseModel
 {
 	public function __construct($name = "")
 	{

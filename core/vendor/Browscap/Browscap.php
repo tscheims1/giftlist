@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Vendor\Browscap;
+namespace Giftlist\Core\Vendor\Browscap;
 
 use \Exception as BaseException;
 

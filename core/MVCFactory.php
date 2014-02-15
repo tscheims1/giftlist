@@ -3,7 +3,7 @@
  * @author James Schüpbch
  * @version 1.0
  */
-namespace Core;
+namespace Giftlist\Core;
 
 /**
  * The Bootstrap Factory of the MVC Framework
@@ -31,9 +31,9 @@ class MVCFactory
 			
 			self::includeClasses($name);
 			
-			$controllerName = "\\App\\Controller\\".$name."Controller";
-			$viewName = "\\App\\View\\".$name."View";
-			$modelName = "\\App\\Model\\".$name;
+			$controllerName = "\\Giftlist\\App\\Controller\\".$name."Controller";
+			$viewName = "\\Giftlist\\App\\View\\".$name."View";
+			$modelName = "\\Giftlist\\App\\Model\\".$name;
 			
 			self::$instances[$name] = new $controllerName('index',new $viewName(),new $modelName($name));
 		}

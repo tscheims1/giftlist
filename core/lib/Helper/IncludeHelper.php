@@ -6,7 +6,7 @@
  * @version 1.1.0
  */
  
-namespace Core\Lib\Helper; 
+namespace Giftlist\Core\Lib\Helper; 
  
 class IncludeHelper
 {

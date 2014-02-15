@@ -2,9 +2,9 @@
 
 namespace Giftlist\App\Controller;
 
-class %%NAME%%Controller extends \Giftlist\Core\Controller\BaseController
+class BackendController extends \Giftlist\Core\Controller\BaseController
 {
-	protected $name = "%%NAME%%";
+	protected $name = "Backend";
 
 	/**
 	 * Sample IndexAction

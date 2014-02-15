@@ -3,7 +3,7 @@
  * @author James Schüpbach
  * @version 1.0
  */
-namespace Core\Lib\Helper;
+namespace Giftlist\Core\Lib\Helper;
 /**
  * Helper for getting the Plugin Directory in Deep Directories.
  */
@@ -25,7 +25,7 @@ class FileHelper
 		 * 
 		 */ 
 		
-		$rc = new \ReflectionClass('\Core\Bootstrap');
+		$rc = new \ReflectionClass('\Giftlist\Core\Bootstrap');
 		$path =  plugin_dir_path($rc->getFileName());
 		
 		return preg_replace('!(.*)(core\/)$!', "$1", $path);

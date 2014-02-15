@@ -2,7 +2,7 @@
 
 namespace Giftlist\App\Model;
 
-class %%NAME%% extends \Giftlist\Core\Model\BaseModel
+class Backend extends \Giftlist\Core\Model\BaseModel
 {
 	public function __construct($name = "")
 	{
@@ -13,6 +13,32 @@ class %%NAME%% extends \Giftlist\Core\Model\BaseModel
 	 */
 	public function init()
 	{
+		$this->customType = array(
+				'labels' => array(
+				'name' => __( 'Geschenkliste' ),
+				'singular_name' => __( 'Geschenk' )
+				),
+				'public' => true,
+				'has_archive' => true,
+
+
+				'supports' => array('title','editor' ,'thumbnail'),
+
+
+				'public' => true,
+
+
+				'show_ui' => true,
+
+
+				'show_in_menu' => true,
+				'rewrite' => true,
+				'show_in_nav_menus' => true,
+		);
+		register_post_type('tscheims_giftlist',$this->customType);
+
+
+		wp_enqueue_media();
 		
 	}
 	/**
@@ -20,12 +46,14 @@ class %%NAME%% extends \Giftlist\Core\Model\BaseModel
 	 */ 
 	public function activate()
 	{
+		flush_rewrite_rules();
 	}
 	/**
 	 * This Method will run, when the Plugin is deactived
 	 */
 	public function deactivate()
 	{
+		flush_rewrite_rules();
 	}
 	/**
 	 * This is the Uninstall Method

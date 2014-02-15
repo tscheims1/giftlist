@@ -5,7 +5,7 @@
  * @version 1.1
  */
  
- namespace Core\Lib;
+ namespace Giftlist\Core\Lib;
  
  class ImportHelper
  {
@@ -20,12 +20,12 @@
 		
 		$path = str_replace("\\", "/", $classname);
 		$path = preg_replace("!.+(\/App.+)!","$1",$path);
-		$file = \Core\Lib\Helper\FileHelper::getPluginBaseDir().$path.".php";
+		$file = \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir().$path.".php";
 		if(!is_readable($file))
 			throw new \Exception("ImportHepler: Classfile dosen't exists: ".$file);
 		
 		
-		include_once(\Core\Lib\Helper\FileHelper::getPluginBaseDir().$path.".php");
+		include_once(\Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir().$path.".php");
 		
 		return new $classname;
 	}

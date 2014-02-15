@@ -7,7 +7,7 @@
  * @since 1.1
  */
   
- namespace Core\Lib\Helper;
+ namespace Giftlist\Core\Lib\Helper;
  
  class DependencyHelper
  {
@@ -69,7 +69,7 @@
 		if(!isset($this->depsArray[$filename]['userAgent']['name']))
 			return false;
 		
-		$bc = new \Core\Vendor\Browscap\Browscap( \Core\Lib\Helper\FileHelper::getPluginBaseDir()."/core/vendor/Browscap/cache");
+		$bc = new \Giftlist\Core\Vendor\Browscap\Browscap( \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir()."/core/vendor/Browscap/cache");
 		
 		$userAgent = $bc->getBrowser(null,true);
 		

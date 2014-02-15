@@ -4,7 +4,7 @@
  * @version 1.1
  */
 
-namespace Core\Model;
+namespace Giftlist\Core\Model;
 
 
 
@@ -83,7 +83,7 @@ abstract class BaseModel
 	  */
 	 public function addMcePlugin($plugin_array)
 	 {
-	 	$path = plugins_url()."/".\Core\Lib\Helper\FileHelper::getPluginName()."/app/public/admin/script/".$this->name."-tinymce.js";
+	 	$path = plugins_url()."/".\Giftlist\Core\Lib\Helper\FileHelper::getPluginName()."/app/public/admin/script/".$this->name."-tinymce.js";
 	 	
 
 	 	$plugin_array[strtolower($this->name)] = $path;

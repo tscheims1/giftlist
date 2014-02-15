@@ -5,7 +5,7 @@
  * @version 1.1
  */
  
- namespace Core\Controller\Helper;
+ namespace Giftlist\Core\Controller\Helper;
  /**
   *This Class helps to check the condition if a Template should be inclucuded or not
   */

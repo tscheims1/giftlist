@@ -3,7 +3,7 @@
  * @author James Schüpbach
  * @version 1.0
  */
-namespace Core\View;
+namespace Giftlist\Core\View;
 
 /**
  * BaseView of the MVC Framework
@@ -59,7 +59,7 @@ class BaseView
 	 * @param array
 	 * @throws Exeption if View dosent exists
 	 */
-	public function render($action,$data = null)
+	public function render($action,$data = null,$output = false)
 	{
 		
 		/*
@@ -75,14 +75,31 @@ class BaseView
 		{
 			
 			$this->data = $data;
-			
-			ob_start();
-			$str =  file_get_contents( plugin_dir_path($location).$name."/".$action.".php");
-			require_once (plugin_dir_path($location).$name."/".$action.".php");
-			$str = ob_get_contents();
-			ob_end_clean();
-			return $str;
-			
+
+
+			if($output ===false)
+			{
+
+
+				ob_start();
+				require (plugin_dir_path($location).$name."/".$action.".php");
+				$str = ob_get_contents();
+
+
+				ob_end_clean();
+
+
+
+
+
+
+				return $str;
+			}
+			else
+			{
+				include (plugin_dir_path($location).$name."/".$action.".php");
+			}
+
 		}
 		else
 		{

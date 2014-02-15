@@ -3,7 +3,7 @@
  * @author James Schüpbch
  * @version 1.0
  */
-namespace Core;
+namespace Giftlist\Core;
 
 /**
  * The Bootstrap Factory of the MVC Framework
@@ -70,8 +70,8 @@ class Bootstrap
 		/*
 		 * Load Debug Libraries
 		 */
-		 \Core\Lib\Helper\IncludeHelper::includeFile('\\cBug',plugin_dir_path(__FILE__).'vendor/dBug/cBug.php'); 
-		  \Core\Lib\Helper\IncludeHelper::includeFile('\\dBug',plugin_dir_path(__FILE__).'vendor/dBug/dBug.php'); 
+		 \Giftlist\Core\Lib\Helper\IncludeHelper::includeFile('\\cBug',plugin_dir_path(__FILE__).'vendor/dBug/cBug.php'); 
+		  \Giftlist\Core\Lib\Helper\IncludeHelper::includeFile('\\dBug',plugin_dir_path(__FILE__).'vendor/dBug/dBug.php'); 
 		
 		add_action('init',array($this,'includeTextdomain'));
 		
@@ -79,9 +79,9 @@ class Bootstrap
 		 * TODO: check if the includes and preparation should be called in the constructor
 		 * prepare the ConfigArray
 		 */ 
-		$this->confArrary =  \Core\Lib\Helper\ConfigHelper::prepareConfigArray($this->confArrary);
+		$this->confArrary =  \Giftlist\Core\Lib\Helper\ConfigHelper::prepareConfigArray($this->confArrary);
 		
-		$fileLoader = \Core\Lib\FileLoader::getInstance($this->confArrary['files']);
+		$fileLoader = \Giftlist\Core\Lib\FileLoader::getInstance($this->confArrary['files']);
 		
 		add_action('wp_enqueue_scripts',array($fileLoader,'enqueueScripts'));
 		add_action('admin_enqueue_scripts',array($fileLoader,'adminEnqueueScripts'));

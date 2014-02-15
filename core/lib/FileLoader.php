@@ -3,7 +3,7 @@
  * @author James Schüpbach
  * @version 1.0
  */
-namespace Core\Lib;
+namespace Giftlist\Core\Lib;
 
 use Core\Lib\Helper\FileHelper;
 
@@ -61,7 +61,7 @@ class FileLoader
 	private function __construct($fileConfig)
 	{
 		$this->fileConfig = $fileConfig;
-		$this->dependencyManager = \Core\Lib\Helper\DependencyHelper::getInstance($fileConfig);
+		$this->dependencyManager = \Giftlist\Core\Lib\Helper\DependencyHelper::getInstance($fileConfig);
 		
 	}
 	private function __clone(){} 
@@ -85,7 +85,7 @@ class FileLoader
 	public function enqueueScripts()
 	{
 		
-		$baseDir =  \Core\Lib\Helper\FileHelper::getPluginBaseDir();
+		$baseDir =  \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir();
 		$baseDir .= MvcConfig::SCRIPT_DIR."/";
 		
 		if(!is_dir($baseDir))
@@ -98,7 +98,7 @@ class FileLoader
 			{
 				if(preg_match($this->scriptRegexPattern,$script) && !wp_script_is($script) && !$this->dependencyManager->hasLoadRestriction(self::USERSCRIPTPATH.$script))
 				{
-					wp_enqueue_script(self::USERSCRIPTPATH.$script,plugins_url()."/".\Core\Lib\Helper\FileHelper::getPluginName()."/"
+					wp_enqueue_script(self::USERSCRIPTPATH.$script,plugins_url()."/".\Giftlist\Core\Lib\Helper\FileHelper::getPluginName()."/"
 						.MvcConfig::SCRIPT_DIR."/".$script,$this->dependencyManager->getFileDependency(self::USERSCRIPTPATH.$script));
 				}
 			}
@@ -108,7 +108,7 @@ class FileLoader
 	 */
 	public function adminEnqueueScripts()
 	{
-		$baseDir =  \Core\Lib\Helper\FileHelper::getPluginBaseDir();
+		$baseDir =  \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir();
 		$baseDir .= MvcConfig::ADMIN_SCRIPT_DIR."/";
 		
 		if(!is_dir($baseDir))
@@ -121,7 +121,7 @@ class FileLoader
 				if(preg_match($this->scriptRegexPattern,$script) && !wp_script_is($script) && !$this->dependencyManager->hasLoadRestriction(self::ADMINSCRIPTPATH.$script))
 				{
 					
-					wp_enqueue_script(self::ADMINSCRIPTPATH.$script,plugins_url()."/".\Core\Lib\Helper\FileHelper::getPluginName()."/".
+					wp_enqueue_script(self::ADMINSCRIPTPATH.$script,plugins_url()."/".\Giftlist\Core\Lib\Helper\FileHelper::getPluginName()."/".
 						MvcConfig::ADMIN_SCRIPT_DIR."/".$script,$this->dependencyManager->getFileDependency(self::ADMINSCRIPTPATH.$script));
 				}
 			}
@@ -132,7 +132,7 @@ class FileLoader
 	public function enqueueStyles()
 	{
 		
-		$baseDir =  \Core\Lib\Helper\FileHelper::getPluginBaseDir();
+		$baseDir =  \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir();
 		$baseDir .= MvcConfig::STYLE_DIR."/";
 
 		if(!is_dir($baseDir))
@@ -142,10 +142,10 @@ class FileLoader
 		if(count($styles))
 			foreach($styles as $style)
 			{
-				if(preg_match($this->styleRegexPattern,$style) && !wp_style_is($style) && !$this->dependencyManager->hasLoadRestriction(self::USERSTYLEPATH.$script))
+				if(preg_match($this->styleRegexPattern,$style) && !wp_style_is($style) && !$this->dependencyManager->hasLoadRestriction(self::USERSTYLEPATH.$style))
 				{
-					wp_enqueue_style(self::USERSTYLEPATH.$style,plugins_url()."/".\Core\Lib\Helper\FileHelper::getPluginName()."/"
-						.MvcConfig::STYLE_DIR."/".$style,$this->dependencyManager->getFileDependency(self::USERSTYLEPATH.$script));
+					wp_enqueue_style(self::USERSTYLEPATH.$style,plugins_url()."/".\Giftlist\Core\Lib\Helper\FileHelper::getPluginName()."/"
+						.MvcConfig::STYLE_DIR."/".$style,$this->dependencyManager->getFileDependency(self::USERSTYLEPATH.$style));
 				}
 			}
 	}
@@ -154,7 +154,7 @@ class FileLoader
 	 */
 	public function adminEnqueueStyles()
 	{
-		$baseDir =  \Core\Lib\Helper\FileHelper::getPluginBaseDir();
+		$baseDir =  \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir();
 		$baseDir .= MvcConfig::ADMIN_STYLE_DIR."/";
 		
 		
@@ -168,7 +168,7 @@ class FileLoader
 				if(preg_match($this->styleRegexPattern,$style) && !wp_style_is($style) && !$this->dependencyManager->hasLoadRestriction(self::USERSTYLEPATH.$script))
 				{
 					
-					wp_enqueue_style(self::ADMINSTYLEPATH.$style,plugins_url()."/".\Core\Lib\Helper\FileHelper::getPluginName()."/"
+					wp_enqueue_style(self::ADMINSTYLEPATH.$style,plugins_url()."/".\Giftlist\Core\Lib\Helper\FileHelper::getPluginName()."/"
 						.MvcConfig::ADMIN_STYLE_DIR."/".$style,$this->dependencyManager->getFileDependency(self::USERSTYLEPATH.$script));
 				}
 			}

@@ -3,7 +3,7 @@
  * @author James Schüpbach
  * @version 1.0
  */
-namespace Core\Controller;
+namespace Giftlist\Core\Controller;
 
 
 
@@ -65,26 +65,26 @@ class BaseController
 		/*
 		 * Initialize the View
 		 */
-		 if(is_subclass_of($view, '\Core\View\BaseView'))
+		 if(is_subclass_of($view, '\Giftlist\Core\View\BaseView'))
 		 {
 		 	$this->view =  $view; 
 		 }
 		 else
 		 {
-		 	$this->view = new \Core\View\BaseView();
+		 	$this->view = new \Giftlist\Core\View\BaseView();
 		 }
 		
 		/*
 		 * Initialize the Model
 		 */
-		 if(is_subclass_of($model,'\Core\Model\BaseModel'))
+		 if(is_subclass_of($model,'\Giftlist\Core\Model\BaseModel'))
 		 {
 		 	$this->model = $model;
 			
 			/*
 			 * Register the Plugin Hooks for activating, deactivating und uninstalling
 			 */
-			 $baseFile = \Core\Lib\Helper\FileHelper::getPluginBaseDir().\Core\Lib\Helper\FileHelper::getPluginName().".php";			
+			 $baseFile = \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir().\Giftlist\Core\Lib\Helper\FileHelper::getPluginName().".php";			
 			 register_activation_hook($baseFile,array($this->model,'activate'));
 			 register_deactivation_hook($baseFile,array($this->model,'deactivate'));
 			 register_uninstall_hook($baseFile, get_class($this->model).'::uninstall');
@@ -201,10 +201,10 @@ class BaseController
 	 */
 	public function registerTemplate($template)
 	{
-		include_once(\Core\Lib\Helper\FileHelper::getPluginBaseDir()."core/controller/helper/TemplateConditionHelper.php");
-		if(\Core\Controller\Helper\TemplateCondtionHelper::isConditionTrue($this->templateCondtions))
+		include_once(\Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir()."core/controller/helper/TemplateConditionHelper.php");
+		if(\Giftlist\Core\Controller\Helper\TemplateCondtionHelper::isConditionTrue($this->templateCondtions))
 		{
-			$filename = \Core\Lib\Helper\FileHelper::getPluginBaseDir()."app/view/".$this->name."View/templates/".$this->currentTemplate.".php";
+			$filename = \Giftlist\Core\Lib\Helper\FileHelper::getPluginBaseDir()."app/view/".$this->name."View/templates/".$this->currentTemplate.".php";
 			if(is_readable($filename))
 			{
 				return $filename;

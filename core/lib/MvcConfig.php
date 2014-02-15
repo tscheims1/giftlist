@@ -3,7 +3,7 @@
  * @author James Schüpbach
  * @version 1.0
  */
-namespace Core\Lib;
+namespace Giftlist\Core\Lib;
 
 
 /**

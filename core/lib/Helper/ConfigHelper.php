@@ -7,7 +7,7 @@
  * @since 1.1
  */
  
-namespace Core\Lib\Helper;
+namespace Giftlist\Core\Lib\Helper;
  
 class ConfigHelper
 {
