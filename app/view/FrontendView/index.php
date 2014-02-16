@@ -35,7 +35,7 @@
 <div class="gift-wrapper">
 
 		<?php while($this->gifts->have_posts()) : $this->gifts->the_post();?>
-		
+		<div class="col-sm-6">
 		<div class="gift-title"><strong><?php echo $this->gifts->post->post_title;?></strong></div>
 		<div class="gift-image">
 			<?php if ( has_post_thumbnail() ) 
@@ -55,7 +55,9 @@
 		<?php if(isset($this->givenGifts[$this->gifts->post->ID]) && 
 			$this->givenGifts[$this->gifts->post->ID]['user_id'] != get_current_user_id()):?>
 			<div class="alreay-given" value="<?php echo $this->gifts->post->ID;?>">verschenkt</div>
+		</div>
 		<?php endif;?>
 	</div>
 	<?php endwhile;?>
+	<div style="clear:both;"></div>
 </div>

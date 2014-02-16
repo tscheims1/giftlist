@@ -12,7 +12,7 @@ class FrontendController extends \Giftlist\Core\Controller\BaseController
 	public function indexAction()
 	{
 		$gifts =  new \WP_Query(array('post_type' => 'tscheims_giftlist'));
-		$values = json_decode(get_option('gift_list_manage_list'),true);
+		$values = json_decode(get_option($this->model->getOptionName()),true);
 		
 		
 		return $this->view->render('index',
@@ -24,11 +24,42 @@ class FrontendController extends \Giftlist\Core\Controller\BaseController
 	}
 	public function dispatchAjaxAction()
 	{
+		$this->action = $_POST['method'];
 		
+		$this->callAction();
 	}
-	public function showGiftsAction()
+	public function manageGiftAction()
 	{
+		$values = json_decode(get_option($this->model->getOptionName()),true);
 		
+		/* 
+		 * Nur hinzufügen, wenn noch nicht eingetragen
+		 */ 
+		if(isset($values[(int)$_POST['value']]))
+		{
+			return false;
+		}
+		
+		
+		$values[(int)$_POST['value']] = array(
+			'user_id' => get_current_user_id());
+		update_option($this->model->getOptionName(),json_encode($values));
+		return true;
+		 
+	}
+	public function deleteGiftAction()
+	{
+		$values = json_decode(get_option($this->model->getOptionName()),true);
+		
+		if(isset($values[(int)$_POST['value']]))
+		{
+			if($values[(int)$_POST['value']]['user_id'] == get_current_user_id())
+			{
+				unset($values[(int)$_POST['value']]);
+				update_option($this->model->getOptionName(),json_encode($values));
+			}
+			
+		}
 	}
 }
 ?>

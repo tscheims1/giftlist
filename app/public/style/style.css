@@ -7,3 +7,19 @@
 	text-align:center;
 	border-radius:4px;
 }
+.gift-title
+{
+	margin-bottom:10px;
+}
+.gift-image
+{
+	min-height:300px;
+}
+.gift-wrapper
+{
+	margin-bottom:20px;
+}
+.gift-content
+{
+	height:100px;
+}

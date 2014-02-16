@@ -38,7 +38,7 @@ class Backend extends \Giftlist\Core\Model\BaseModel
 		register_post_type('tscheims_giftlist',$this->customType);
 
 
-		wp_enqueue_media();
+		//wp_enqueue_media();
 		
 	}
 	/**
@@ -69,5 +69,6 @@ class Backend extends \Giftlist\Core\Model\BaseModel
 
 		}
 	}
+
 }
 ?>

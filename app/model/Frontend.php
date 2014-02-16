@@ -41,5 +41,9 @@ class Frontend extends \Giftlist\Core\Model\BaseModel
 
 		}
 	}
+	public function getOptionName()
+	{
+		return "gift_list_manage_gifts";
+	}
 }
 ?>
