@@ -23,3 +23,20 @@
 {
 	height:100px;
 }
+.alreay-given
+{
+	transform:rotate(30deg);
+	-ms-transform:rotate(30deg); /* IE 9 */
+	-webkit-transform:rotate(30deg); /* Opera, Chrome, and Safari */
+	color:#C00000;
+	font-weight:700;
+	font-size:50px;
+	position:absolute;
+	text-align:center;
+	margin-top:-300px;
+	margin-left:15%;
+}
+.gift-item
+ {
+ 	margin-bottom:15px;
+ }

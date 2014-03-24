@@ -92,7 +92,7 @@ class BaseController
 			 
 			 //Register Controller Plugin Hook for the INIT -Proccess
 			 add_action('init',array($this,'init'));
-			 
+			
 		 }
 		 else
 		 {
@@ -127,7 +127,7 @@ class BaseController
 	 */
 	public function loadContent($attr, $content = null,$tags = null)
 	{
-		
+
 		if(isset($attr['action']))
 			$this->action = $attr['action'];
 		
@@ -141,7 +141,7 @@ class BaseController
 	 */
 	protected function callAction($action = null)
 	{
-		
+	 			
 		 $action = $this->action.'Action';
 		 if(is_callable(array($this,$action)))
 		 {
