@@ -33,7 +33,7 @@
 </script>
 <div>
 <div class="gift-wrapper">
-
+		
 		<?php while($this->gifts->have_posts()) : $this->gifts->the_post();?>
 		<div class="col-sm-6 gift-item">
 		<div class="gift-title"><strong><?php echo $this->gifts->post->post_title;?></strong></div>

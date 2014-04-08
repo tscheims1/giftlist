@@ -39,4 +39,6 @@
 .gift-item
  {
  	margin-bottom:15px;
+ 	padding-bottom:10px;
+ 	border-bottom:1px solid rgb(192,0,0);
  }

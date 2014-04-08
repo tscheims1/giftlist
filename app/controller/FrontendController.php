@@ -11,7 +11,7 @@ class FrontendController extends \Giftlist\Core\Controller\BaseController
 	 */
 	public function indexAction()
 	{
-		$gifts =  new \WP_Query(array('post_type' => 'tscheims_giftlist'));
+		$gifts =  new \WP_Query(array('post_type' => 'tscheims_giftlist', 'posts_per_page' => -1));
 		$values = json_decode(get_option($this->model->getOptionName()),true);
 		
 		
